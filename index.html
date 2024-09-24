@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        .main {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width:90%;
+            z-index: 1;
+            position: absolute;
+            
+        }
+
+        .input-form {
+            padding: 10px;
+            z-index: 1;
+        }
+
+        #btn {
+            margin: 4px;
+            padding: 10px;
+            height: 50px;
+            width: 180px;
+            background-color: blue;
+            color: white;
+            z-index: 1;
+
+        }
+
+        .notification {
+            display: none;
+            border: 2px solid grey;
+            border-radius: 8px;
+            margin: auto;
+            padding: 20px;
+            width: 20%;
+            font-size: 16px;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+            z-index: 2;
+            position: relative;
+           
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <input class="input-form" id="name" type="text" placeholder="name" /><br>
+            <input class="input-form" id="class" type="text" placeholder="class" /><br>
+            <input class="input-form" id="roll-no" type="text" placeholder="roll no" />
+
+            
+        </div>
+
+        <div>
+            <label for="">Select Font Colour</label>
+            <input type="color" id="fontcolor" value="#000000" />
+            <label for="">Select Background Colour</label>
+            <input type="color" id="bgcolor" value="#ffffff" />
+
+        </div>
+
+        
+        <button id="btn">Click Here For Notification</button>
+    </div>
+    
+
+    <div class="notification" id=""></div>
+
+    <script>
+
+
+        $(document).ready(function () {
+
+
+
+            $("#btn").click(function () {
+
+                var name = $("#name").val()
+                var standard = $("#class").val()
+                var rollno = $("#roll-no").val()
+
+
+
+
+                if (name && standard && rollno) {
+                    $(".notification").html(`your name is <b>${name}</b> you  are in  <b>${standard}</b> claas your roll no is <b>${rollno} </b>`)
+
+                }
+                else {
+                    $(".notification").html(`fill all details`)
+                }
+
+               
+
+                var fontColor = $("#fontcolor").val()
+                var backcolor = $("#bgcolor").val()
+
+                $(".notification").css({
+                    'color': fontColor,
+                    'background-color': backcolor
+                })
+
+                $(".main").css({
+                    'opacity':0.2
+                })
+
+                $(".notification").fadeIn()
+                setTimeout(function () {
+                    $(".notification").fadeOut();
+                    $(".main").css({
+                        'opacity':1
+                    })
+                }, 3000)
+
+            })
+
+
+        })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
