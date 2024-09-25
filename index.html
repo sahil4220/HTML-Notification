@@ -119,8 +119,13 @@
                 })
 
                 $(".main").css({
-                    'opacity':0.2
+                    'opacity':0.2,
+                    
                 })
+                $("body").css({
+                    'background-color':"rgba(0, 0, 0, 0.5)"
+                })
+                
 
                 $(".notification").fadeIn()
                 setTimeout(function () {
@@ -128,7 +133,16 @@
                     $(".main").css({
                         'opacity':1
                     })
+                    $("body").css({
+                    'background-color':"white"
+                })
+                 $("#name").val("")
+                $("#class").val("")
+                $("#roll-no").val("")
+
                 }, 3000)
+               
+
 
             })
 
